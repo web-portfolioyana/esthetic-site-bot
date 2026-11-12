@@ -5,7 +5,8 @@ import telebot
 from telebot import types
 
 # Токен вашего бота
-TOKEN = "8254158308:AAEeLZ04gx9RD5OYSHN3wLNKZ_L4TrYKnss"
+TOKEN = os.environ.get("TOKEN")
+bot = telebot.TeleBot(TOKEN)
 bot = telebot.TeleBot(TOKEN)
 
 # Настройка Flask для удовлетворения требований Render к портам
