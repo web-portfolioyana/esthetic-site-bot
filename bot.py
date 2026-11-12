@@ -1,3 +1,21 @@
+import os
+from threading import Thread
+from flask import Flask
+
+app = Flask("")
+
+
+@app.route("/")
+def home():
+  return "Bot is active and running!"
+
+
+def run_web():
+  port = int(os.environ.get("PORT", 5000))
+  app.run(host="0.0.0.0", port=port)
+
+
+Thread(target=run_web).start()
 import telebot
 from telebot import types
 
