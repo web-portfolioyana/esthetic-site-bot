@@ -20,7 +20,7 @@ import telebot
 from telebot import types
 
 # Твій токен
-TOKEN = '8254158308:AAG_HF7tj2Dp1WFtEjyvkLMCl8NXtqckZW0'
+TOKEN = "8254158308:AAEeLZ04gx9RD5OYSHN3wLNKZ_L4TrYKnss"
 
 bot = telebot.TeleBot(TOKEN)
 
