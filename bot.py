@@ -5,7 +5,7 @@ import telebot
 from telebot import types
 
 # Читаємо токен безпечно з налаштувань Render або вставляємо за потреби
-TOKEN = os.environ.get("TOKEN", "9179224386:AAG5k45AMWTkVC-OLyR_N7FIuhc-M3l_rhw")
+TOKEN = os.environ.get("TOKEN")
 
 bot = telebot.TeleBot(TOKEN)
 
