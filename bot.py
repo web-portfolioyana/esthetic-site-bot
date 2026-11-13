@@ -148,9 +148,16 @@ def handle_menu_text(message):
         bot.send_message(chat_id, "Оберіть потрібний розділ за допомогою кнопок нижче 👇")
 
 if __name__ == "__main__":
-    # Запускаємо Flask-сервер у фоновому потоці для Render
-    t = threading.Thread(target=run_web)
-    t.start()
+    # Запускаємо веб-сервер у фоновому потоці для Render
+    web_thread = threading.Thread(target=run_web)
+    web_thread.daemon = True
+    web_thread.start()
     
-    print("Бот запущено успішно...")
-    bot.infinity_polling()
+    print("Веб-сервер запущено, стартуємо Telegram-бота...")
+    
+    # Запускаємо бота з автопереподключенням
+    while True:
+        try:
+            bot.infinity_polling(none_stop=True, interval=0, timeout=20)
+        except Exception as e:
+            print(f"Помилка з'єднання з Telegram: {e}")
