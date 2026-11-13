@@ -100,10 +100,13 @@ MESSAGES = {
             "Puedes contactarme directamente para colaboraciones:\n"
             "Telegram: @i_ana333\n"
             "Portafolio: https://web-portfolioyana.github.io/portfolio/\n\n"
-            "¡Será un placer работать contigo! 🤍"
+            "¡Será un placer trabajar contigo! 🤍"
         )
     }
 }
+
+# Зберігаємо обрану мову для кожного користувача
+user_languages = {}
 
 # Команда /start
 @bot.message_handler(commands=['start'])
@@ -115,9 +118,6 @@ def send_welcome(message):
     markup.add(btn_uk, btn_en, btn_es)
     
     bot.send_message(message.chat.id, MESSAGES['uk']['welcome'], reply_markup=markup)
-
-# Зберігаємо обрану мову для кожного користувача
-user_languages = {}
 
 # Обробка натискання інлайн-кнопок вибору мови
 @bot.callback_query_handler(func=lambda call: call.data.startswith('lang_'))
